@@ -4,18 +4,24 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatCheckboxModule } from '@angular/material';
+import { AngularFireModule } from "angularfire2";
+import { AuthComponent } from './components/auth/auth.component';
+import { SharedModule } from './shared/shared.module';
+import { environment } from '../environments/environment';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    CoreModule,
     BrowserAnimationsModule,
-    MatButtonModule,
-    MatCheckboxModule
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
